@@ -19,9 +19,7 @@ if (navClose) {
 
 /* Fecha o menu ao clicar em um link */
 const navLink = document.querySelectorAll('.nav__link');
-
 function linkAction() {
-    const navMenu = document.getElementById('nav-menu');
     navMenu.classList.remove('show-menu');
 }
 navLink.forEach(n => n.addEventListener('click', linkAction));
@@ -29,7 +27,6 @@ navLink.forEach(n => n.addEventListener('click', linkAction));
 /* ==================== HEADER COM SCROLL ==================== */
 function scrollHeader() {
     const header = document.getElementById('header');
-    // Quando o scroll for maior que 50 viewport height, adiciona a classe scroll-header na tag header
     if (this.scrollY >= 50) {
         header.classList.add('scroll-header');
     } else {
@@ -37,3 +34,17 @@ function scrollHeader() {
     }
 }
 window.addEventListener('scroll', scrollHeader);
+
+/* ==================== ANIMAÇÃO DE SCROLL (Intersection Observer) ==================== */
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+        }
+    });
+}, {
+    threshold: 0.1 // A animação começa quando 10% do elemento estiver visível
+});
+
+const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+elementsToAnimate.forEach((el) => observer.observe(el));
