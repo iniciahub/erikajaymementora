@@ -1,50 +1,51 @@
-/* ==================== SHOW/HIDE MENU MOBILE ==================== */
-const navMenu = document.getElementById('nav-menu'),
-      navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close');
+document.addEventListener('DOMContentLoaded', () => {
 
-/* Mostra o menu */
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.add('show-menu');
-    });
-}
+    /* ==================== MENU MOBILE ==================== */
+    const navMenu = document.getElementById('nav-menu'),
+          navToggle = document.getElementById('nav-toggle'),
+          navClose = document.getElementById('nav-close');
 
-/* Esconde o menu */
-if (navClose) {
-    navClose.addEventListener('click', () => {
-        navMenu.classList.remove('show-menu');
-    });
-}
-
-/* Fecha o menu ao clicar em um link */
-const navLink = document.querySelectorAll('.nav__link');
-function linkAction() {
-    navMenu.classList.remove('show-menu');
-}
-navLink.forEach(n => n.addEventListener('click', linkAction));
-
-/* ==================== HEADER COM SCROLL ==================== */
-function scrollHeader() {
-    const header = document.getElementById('header');
-    if (this.scrollY >= 50) {
-        header.classList.add('scroll-header');
-    } else {
-        header.classList.remove('scroll-header');
+    if (navToggle) {
+        navToggle.addEventListener('click', () => navMenu.classList.add('show-menu'));
     }
-}
-window.addEventListener('scroll', scrollHeader);
+    if (navClose) {
+        navClose.addEventListener('click', () => navMenu.classList.remove('show-menu'));
+    }
 
-/* ==================== ANIMAÇÃO DE SCROLL (Intersection Observer) ==================== */
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-        }
+    const navLink = document.querySelectorAll('.nav__link');
+    navLink.forEach(n => n.addEventListener('click', () => navMenu.classList.remove('show-menu')));
+
+    /* ==================== HEADER COM SCROLL ==================== */
+    window.addEventListener('scroll', () => {
+        const header = document.getElementById('header');
+        header.classList.toggle('scroll-header', window.scrollY >= 50);
     });
-}, {
-    threshold: 0.1 // A animação começa quando 10% do elemento estiver visível
-});
 
-const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-elementsToAnimate.forEach((el) => observer.observe(el));
+    /* ==================== ANIMAÇÃO DE SCROLL (Intersection Observer) ==================== */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+    elementsToAnimate.forEach((el) => observer.observe(el));
+
+    /* ==================== FAQ (ACORDEÃO) ==================== */
+    const faqItems = document.querySelectorAll('.faq__item');
+    faqItems.forEach((item) => {
+        const header = item.querySelector('.faq__header');
+        header.addEventListener('click', () => {
+            const openItem = document.querySelector('.faq__item.active');
+            if (openItem && openItem !== item) {
+                openItem.classList.remove('active');
+            }
+            item.classList.toggle('active');
+        });
+    });
+
+});
