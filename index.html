@@ -3,162 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erika Jayme | Destrave sua Mentalidade para a Prosperidade</title>
+    <title>Erika Jayme | Finanças com Leveza e Consciência</title>
     
     <link rel="stylesheet" href="css/style.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
 
     <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">erikajayme.mentora</a>
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li><a href="#desafio" class="nav__link">O Desafio</a></li>
-                    <li><a href="#metodo" class="nav__link">O Método</a></li>
-                    <li><a href="#depoimentos" class="nav__link">Resultados</a></li>
-                    <li><a href="#faq" class="nav__link">Dúvidas</a></li>
-                </ul>
-                <div class="nav__close" id="nav-close"><i class="fas fa-times"></i></div>
+        <div class="header__container container">
+            <a href="#" class="header__logo">
+                Erika Jayme
+                <span>Finanças com leveza e consciência</span>
+            </a>
+            <div class="header__menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <a href="https://abre.ai/diagnosticofinanceirofree" target="_blank" class="button button--header">Diagnóstico Gratuito</a>
-            <div class="nav__toggle" id="nav-toggle"><i class="fas fa-bars"></i></div>
-        </nav>
+        </div>
     </header>
+
+    <nav class="side-menu" id="side-menu">
+        <div class="side-menu__close" id="menu-close">&times;</div>
+        <ul class="side-menu__list">
+            <li><a href="#hero" class="side-menu__link">Início</a></li>
+            <li><a href="#quem-sou" class="side-menu__link">Quem Sou</a></li>
+            <li><a href="#mentoria" class="side-menu__link">Mentoria</a></li>
+            <li><a href="#resultados" class="side-menu__link">Resultados</a></li>
+            <li><a href="#video" class="side-menu__link">Vídeo</a></li>
+            <li><a href="#diagnostico" class="side-menu__link">Diagnóstico</a></li>
+            <li><a href="#contato" class="side-menu__link">Contato</a></li>
+        </ul>
+    </nav>
+    <div class="overlay" id="overlay"></div>
 
     <main>
         <section class="hero" id="hero">
-            <div class="hero__container container grid">
-                <div class="hero__content">
-                    <h1 class="hero__title animate-on-scroll">Destravo sua mentalidade para a prosperidade.</h1>
-                    <p class="hero__subtitle animate-on-scroll" data-delay="1">Para você, mulher, que ganha bem, mas vê seu dinheiro sumir. Vamos juntas criar um caminho de clareza e controle para que sua vida financeira finalmente reflita seu sucesso.</p>
-                    <div class="hero__cta-group animate-on-scroll" data-delay="2">
-                        <a href="https://abre.ai/diagnosticofinanceirofree" target="_blank" class="button button--large">Faça seu Diagnóstico Gratuito</a>
-                        <div class="hero__social-proof">✨ +500 alunas com vidas transformadas</div>
+            <div class="hero__video-container">
+                <video src="assets/videos/hero-video.mp4" autoplay loop muted playsinline class="hero__video"></video>
+            </div>
+            <div class="hero__content container">
+                <h1 class="hero__title animate-on-scroll">Você não precisa ganhar mais, você precisa aprender a dominar o que já tem.</h1>
+                <p class="hero__subtitle animate-on-scroll" data-delay="1">Sou Erika Jayme, mentora de mulheres que querem destravar sua vida financeira e emocional de uma vez por todas.</p>
+                <a href="#diagnostico" class="button animate-on-scroll" data-delay="2">Quero Começar Agora</a>
+            </div>
+        </section>
+
+        <section class="section quem-sou" id="quem-sou">
+            <div class="container grid">
+                <div class="quem-sou__image-wrapper animate-on-scroll">
+                    <img src="assets/images/erika-profissional.jpg" alt="Mentora Erika Jayme">
+                </div>
+                <div class="quem-sou__content animate-on-scroll" data-delay="1">
+                    <h2 class="section__title">Não nasci sabendo lidar com dinheiro.</h2>
+                    <p>Como a maioria das mulheres, aprendi na dor. Já estive endividada, perdida, sufocada. Hoje, ensino mulheres a libertarem-se disso, sem planilhas complicadas, sem fórmulas mágicas — só o que funciona de verdade.</p>
+                    <div class="quem-sou__highlights">
+                        <div class="highlight-item"><strong>+500</strong><span>mulheres mentoradas</span></div>
+                        <div class="highlight-item"><strong>+10</strong><span>anos de experiência</span></div>
+                        <div class="highlight-item"><strong>+98%</strong><span>de satisfação</span></div>
                     </div>
                 </div>
-                <div class="hero__image-wrapper animate-on-scroll" data-delay="3">
-                    <img src="https://i.imgur.com/u15j6hL.png" alt="Mentora Financeira Erika Jayme">
-                </div>
             </div>
         </section>
 
-        <section class="section desafio" id="desafio">
-            <div class="container text-center">
-                <h2 class="section__title animate-on-scroll">Você se reconhece neste ciclo?</h2>
-                <p class="section__subtitle animate-on-scroll">Você se esforça, conquista, mas a paz financeira parece uma meta distante. A fatura do cartão te assusta, investir parece um bicho de sete cabeças e a sensação de "não sei para onde meu dinheiro vai" é constante. Isso não é falta de capacidade, é um padrão mental. A boa notícia? Todo padrão pode ser quebrado.</p>
-            </div>
-        </section>
-        
-        <section class="section sobre" id="sobre">
-            <div class="container text-center">
-                 <span class="section__tag animate-on-scroll">A MENTORA</span>
-                 <h2 class="section__title animate-on-scroll">Eu não te entrego uma planilha. Eu te devolvo o poder de decisão.</h2>
-                 <p class="section__subtitle animate-on-scroll">Meu nome é Erika Jayme, e minha missão é simples: te ajudar a fazer as pazes com seu dinheiro. Eu não acredito em fórmulas mágicas, mas sim em um processo profundo de autoconhecimento e estratégia. Juntas, vamos entender as emoções que guiam suas finanças e criar um sistema que te dê clareza para gastar sem culpa, segurança para investir e liberdade para sonhar cada vez mais alto.</p>
-                 <div class="sobre__quote animate-on-scroll">
-                    <blockquote>“O controle financeiro não é sobre restrição. É sobre liberdade de escolha.”</blockquote>
-                 </div>
-            </div>
-        </section>
-
-        <section class="section metodo" id="metodo">
+        <section class="section mentoria" id="mentoria">
             <div class="container">
                 <div class="text-center animate-on-scroll">
-                    <span class="section__tag">O CAMINHO</span>
-                    <h2 class="section__title">Meu Método de 3 Pilares</h2>
+                    <h2 class="section__title">Sua jornada para a liberdade financeira, passo a passo.</h2>
                 </div>
-                <div class="metodo__grid">
-                    <div class="metodo__card animate-on-scroll">
-                        <i class="fas fa-lightbulb metodo__icon"></i>
-                        <h3>Clareza Mental</h3>
-                        <p>Diagnosticamos suas crenças e comportamentos financeiros para identificar a causa raiz da desorganização e da ansiedade.</p>
+                <div class="mentoria__steps">
+                    <div class="step-item animate-on-scroll">
+                        <h3><span>1.</span> Diagnóstico</h3>
+                        <p>Você descobre por que o dinheiro não rende.</p>
                     </div>
-                    <div class="metodo__card animate-on-scroll" data-delay="1">
-                         <i class="fas fa-sitemap metodo__icon"></i>
-                        <h3>Sistema Prático</h3>
-                        <p>Implementamos uma rotina de organização simples e personalizada, que se encaixa na sua vida e te dá total visibilidade sobre seu dinheiro.</p>
+                    <div class="step-item animate-on-scroll" data-delay="1">
+                        <h3><span>2.</span> Reprogramação</h3>
+                        <p>Identifica seus padrões emocionais sabotadores.</p>
                     </div>
-                    <div class="metodo__card animate-on-scroll" data-delay="2">
-                         <i class="fas fa-chart-line metodo__icon"></i>
-                        <h3>Ação Estratégica</h3>
-                        <p>Com a base sólida, traçamos um plano claro para você quitar dívidas, criar sua reserva de segurança e começar a investir para o futuro.</p>
+                    <div class="step-item animate-on-scroll" data-delay="2">
+                        <h3><span>3.</span> Liberdade</h3>
+                        <p>Constrói um estilo de vida próspero e leve.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="section depoimentos" id="depoimentos">
-            <div class="container">
+                <div class="mentoria__benefits animate-on-scroll">
+                    <h3 class="benefits__title">O que está incluso:</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Sessões práticas e ao vivo</li>
+                        <li><i class="fas fa-users"></i> Grupo fechado de apoio</li>
+                        <li><i class="fas fa-tools"></i> Ferramentas personalizadas</li>
+                        <li><i class="fas fa-headset"></i> Suporte direto comigo, Erika</li>
+                    </ul>
+                </div>
                 <div class="text-center animate-on-scroll">
-                    <span class="section__tag">RESULTADOS REAIS</span>
-                    <h2 class="section__title">Vidas transformadas pela clareza financeira.</h2>
-                </div>
-                <div class="depoimentos__grid">
-                    <div class="depoimento__card animate-on-scroll">
-                        <p>"Finalmente sinto que estou no controle. A Erika me deu as ferramentas e a confiança para olhar para minhas finanças sem medo. Hoje, invisto mensalmente e tenho paz."</p>
-                        <span>- Mariana F., Advogada</span>
-                    </div>
-                    <div class="depoimento__card animate-on-scroll">
-                        <p>"Eu não sabia como separar as finanças da minha empresa das pessoais. A mentoria foi um divisor de águas que me trouxe organização e previsibilidade para crescer."</p>
-                        <span>- Juliana P., Empreendedora</span>
-                    </div>
-                    <div class="depoimento__card animate-on-scroll">
-                        <p>"Depois de uma grande mudança na minha vida, eu estava perdida. A Erika me guiou para reconstruir minha independência e autoestima financeira. Sou muito grata!"</p>
-                        <span>- Carla M., Publicitária</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="section faq" id="faq">
-             <div class="container">
-                <h2 class="section__title text-center animate-on-scroll">Dúvidas Frequentes</h2>
-                <div class="faq__container">
-                    <div class="faq__item animate-on-scroll">
-                        <div class="faq__header"><h3>Como funciona o Diagnóstico Gratuito?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq__content"><p>É o nosso ponto de partida. Ao clicar no link, você responderá a um questionário rápido. Eu mesma analisarei suas respostas e te darei um retorno personalizado em até 24h, com os primeiros passos para sua transformação.</p></div>
-                    </div>
-                    <div class="faq__item animate-on-scroll">
-                        <div class="faq__header"><h3>Quanto tempo dura a mentoria?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq__content"><p>A jornada é personalizada. Temos programas de diferentes durações, que são definidos após o diagnóstico, de acordo com suas necessidades e objetivos específicos.</p></div>
-                    </div>
-                     <div class="faq__item animate-on-scroll">
-                        <div class="faq__header"><h3>Preciso ter algum conhecimento prévio?</h3><i class="fas fa-plus"></i></div>
-                        <div class="faq__content"><p>Absolutamente não. A mentoria é para todas, desde a iniciante que quer organizar as contas até a mulher que já investe e quer otimizar sua carteira. A linguagem é simples e direta.</p></div>
-                    </div>
+                    <a href="#contato" class="button">Quero entrar para a próxima turma</a>
                 </div>
             </div>
         </section>
 
-        <section class="section cta-final" id="cta-final">
+        <section class="section video-section" id="video">
             <div class="container text-center animate-on-scroll">
-                <h2 class="cta-final__title">Sua prosperidade está a um passo de distância.</h2>
-                <p>Chega de deixar para depois. A clareza e a paz que você busca começam com uma única decisão. Clique abaixo para receber seu diagnóstico e dar o primeiro passo real em direção à vida financeira que você merece.</p>
-                <a href="https://abre.ai/diagnosticofinanceirofree" target="_blank" class="button button--large">Quero meu Diagnóstico Agora</a>
+                 <h2 class="section__title">Sua relação com o dinheiro precisa mudar agora.</h2>
+                 <p class="section__subtitle">Assista ao vídeo e entenda o porquê.</p>
+                 <div class="video-wrapper">
+                    <video controls poster="assets/images/video-thumbnail.jpg" src="assets/videos/video-principal.mp4"></video>
+                 </div>
+                 <p class="video-caption">Em menos de 3 minutos, você vai entender o que te impede de prosperar.</p>
+            </div>
+        </section>
+
+        <section class="section resultados" id="resultados">
+            <div class="container">
+                <h2 class="section__title text-center animate-on-scroll">Elas são a prova de que funciona.</h2>
+                <div class="resultados__mosaic animate-on-scroll">
+                    <div class="mosaic-item"><img src="https://via.placeholder.com/300x450/A3D9A5/1c1c1c?text=Depoimento+1" alt="Depoimento de aluna"></div>
+                    <div class="mosaic-item"><img src="https://via.placeholder.com/300x300/f2f2f2/1c1c1c?text=Print+WhatsApp" alt="Print de depoimento"></div>
+                    <div class="mosaic-item"><img src="https://via.placeholder.com/300x450/D4AF37/1c1c1c?text=Depoimento+2" alt="Depoimento de aluna"></div>
+                    <div class="mosaic-item"><img src="https://via.placeholder.com/300x300/1c1c1c/f2f2f2?text=Depoimento+Áudio" alt="Depoimento em áudio"></div>
+                </div>
+                <div class="text-center cta-fixo">
+                    <a href="#contato" class="button">Quero ser a próxima história de sucesso</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section diagnostico" id="diagnostico">
+            <div class="container">
+                <div class="text-center animate-on-scroll">
+                    <h2 class="section__title">Dê o primeiro passo: Peça seu Diagnóstico Gratuito.</h2>
+                    <p class="section__subtitle">Preencha o formulário e receba uma análise exclusiva, feita por mim, sobre seus maiores desafios financeiros.</p>
+                </div>
+                <form class="diagnostico__form animate-on-scroll">
+                    <input type="text" name="nome" placeholder="Seu Nome" required>
+                    <input type="email" name="email" placeholder="Seu Melhor E-mail" required>
+                    <div class="form-group">
+                        <label>Você se considera:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="situacao" value="endividada"> Endividada</label>
+                            <label><input type="radio" name="situacao" value="desorganizada"> Desorganizada</label>
+                            <label><input type="radio" name="situacao" value="estagnada"> Controlada, mas estagnada</label>
+                        </div>
+                    </div>
+                    <textarea name="desafio" placeholder="Qual seu maior desafio financeiro hoje?" rows="4" required></textarea>
+                    <button type="submit" class="button">Quero meu diagnóstico agora</button>
+                    <p class="form-reinforcement">Você receberá uma análise feita por mim, em até 48h, direto no seu e-mail.</p>
+                </form>
+            </div>
+        </section>
+
+        <section class="section contato" id="contato">
+             <div class="container text-center">
+                <h2 class="section__title animate-on-scroll">Vamos conversar?</h2>
+                <div class="contato__icons animate-on-scroll">
+                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i><span>YouTube</span></a>
+                </div>
+                <form class="contato__form animate-on-scroll" data-delay="1">
+                     <input type="text" name="contato_nome" placeholder="Seu Nome" required>
+                     <input type="email" name="contato_email" placeholder="Seu E-mail" required>
+                     <textarea name="contato_mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
+                     <button type="submit" class="button">Enviar Mensagem</button>
+                </form>
+                 <p class="contato__email">Ou se preferir, envie um e-mail para: <strong>contato@erikajayme.com</strong></p>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="container text-center">
-            <h3>erikajayme.mentora</h3>
+        <div class="container">
+            <div class="footer__logo">
+                Erika Jayme
+                <span>Finanças com leveza e propósito.</span>
+            </div>
+            <div class="footer__links">
+                <a href="#mentoria">Mentoria</a>
+                <a href="#diagnostico">Diagnóstico</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Uso</a>
+            </div>
             <div class="footer__social">
-                <a href="https://instagram.com/erikajayme.mentora" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/5531998364682" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:erikajaymementora@gmail.com" title="Email"><i class="far fa-envelope"></i></a>
+                 <a href="#"><i class="fab fa-instagram"></i></a>
+                 <a href="#"><i class="fab fa-whatsapp"></i></a>
+                 <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
             <div class="footer__copyright">
-                <p>© 2025 Erika Jayme | Todos os direitos reservados.</p>
+                <p>&copy; 2025 Erika Jayme. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
-    
+
+    <div class="popup" id="smart-popup">
+        <div class="popup__close" id="popup-close">&times;</div>
+        <div class="popup__content">
+            <h3>Erika aqui!</h3>
+            <p>Percebi que você ainda não pediu seu diagnóstico. Posso te ajudar — é gratuito, rápido e direto com a minha equipe.</p>
+            <a href="#diagnostico" class="button" id="popup-cta">Quero receber</a>
+        </div>
+    </div>
+
     <script src="js/script.js"></script>
 </body>
 </html>
