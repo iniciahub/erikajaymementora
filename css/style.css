@@ -5,13 +5,13 @@
     --primary-color: #1c1c1c;   /* Preto suave */
     --accent-color: #D4AF37;    /* Dourado elegante */
     --bg-color: #f2f2f2;        /* Off white */
-    --support-color: #A3D9A5; /* Verde-menta */
+    --support-color: #A3D9A5;   /* Verde-menta */
     --white-color: #FFFFFF;
 
     --title-font: 'Poppins', sans-serif;
     --body-font: 'Nunito', sans-serif;
-    --h1-font-size: clamp(2.5rem, 6vw, 4rem);
-    --h2-font-size: clamp(2rem, 5vw, 3rem);
+    --h1-font-size: clamp(2.2rem, 5.5vw, 3.5rem); /* Ajustado */
+    --h2-font-size: clamp(1.8rem, 4.5vw, 2.6rem); /* Ajustado */
     
     --header-height: 5rem;
     --border-radius: 8px;
@@ -29,35 +29,41 @@ h1, h2, h3 { font-family: var(--title-font); color: var(--primary-color); font-w
 .text-center { text-align: center; }
 
 /* ==================== ANIMAÇÕES ==================== */
-.animate-on-scroll { opacity: 0; transform: translateY(30px); transition: var(--transition); }
-.animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
-[data-delay="1"] { transition-delay: 0.2s; } [data-delay="2"] { transition-delay: 0.4s; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.animate-on-scroll { opacity: 0; }
+.animate-on-scroll.is-visible { animation: fadeInUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards; }
+[data-delay="1"] { animation-delay: 0.2s; } [data-delay="2"] { animation-delay: 0.4s; }
 
 /* ==================== BOTÃO ==================== */
 .button {
     display: inline-block; background-color: var(--accent-color); color: var(--primary-color);
-    padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; text-transform: uppercase;
+    padding: 0.9rem 2.2rem; border-radius: 50px; font-weight: 700; text-transform: uppercase;
     transition: var(--transition); border: none; letter-spacing: 1px;
 }
 .button:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
 
 /* ==================== 1. HEADER & MENU LATERAL ==================== */
-.header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; height: var(--header-height); }
+.header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; height: var(--header-height); transition: background-color 0.3s, box-shadow 0.3s; }
+.header.scrolled { background-color: rgba(255,255,255,0.9); backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
 .header__container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
-.header__logo { font-family: var(--title-font); font-size: 1.5rem; color: var(--primary-color); }
-.header__logo span { display: block; font-size: 0.7rem; font-family: var(--body-font); opacity: 0.7; }
+.header__logo { text-decoration: none; font-family: var(--title-font); font-size: 1.4rem; color: var(--primary-color); }
+.header__logo span { display: block; font-size: 0.65rem; font-family: var(--body-font); opacity: 0.7; }
 .header__menu-toggle { display: flex; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; cursor: pointer; }
 .header__menu-toggle span { display: block; width: 100%; height: 3px; background-color: var(--primary-color); border-radius: 3px; transition: var(--transition); }
+.side-menu.is-active ~ .header .header__menu-toggle span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
+.side-menu.is-active ~ .header .header__menu-toggle span:nth-child(2) { opacity: 0; }
+.side-menu.is-active ~ .header .header__menu-toggle span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 .side-menu {
     position: fixed; top: 0; left: -100%; width: 320px; height: 100%;
     background-color: var(--primary-color); color: var(--bg-color);
     padding: 6rem 2rem; z-index: 200; transition: var(--transition);
 }
 .side-menu.is-active { left: 0; }
-.side-menu__close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 2.5rem; cursor: pointer; }
+.side-menu__close { display: none; } /* O próprio ícone hambúrguer faz o toggle */
 .side-menu__list { list-style: none; }
 .side-menu__list li { margin-bottom: 2rem; }
-.side-menu__link { color: var(--bg-color); font-size: 1.5rem; font-family: var(--title-font); }
+.side-menu__link { text-decoration: none; color: var(--bg-color); font-size: 1.4rem; font-family: var(--title-font); }
 .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: var(--transition); }
 .overlay.is-active { opacity: 1; visibility: visible; }
 
@@ -65,27 +71,28 @@ h1, h2, h3 { font-family: var(--title-font); color: var(--primary-color); font-w
 .hero { position: relative; height: 100vh; display: flex; align-items: center; color: var(--white-color); }
 .hero__video-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
 .hero__video { width: 100%; height: 100%; object-fit: cover; }
-.hero::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(28, 28, 28, 0.6); z-index: -1; }
+.hero::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(28, 28, 28, 0.65); z-index: -1; }
 .hero__content { max-width: 800px; text-align: center; margin: 0 auto; }
 .hero__title { color: var(--white-color); font-size: var(--h1-font-size); line-height: 1.2; margin-bottom: 1rem; }
-.hero__subtitle { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+.hero__subtitle { font-size: 1.1rem; margin-bottom: 2.5rem; opacity: 0.9; }
 
 /* ==================== 3. QUEM SOU ==================== */
 .quem-sou .container { grid-template-columns: 1fr 1.2fr; align-items: center; }
-.quem-sou__image-wrapper img { width: 100%; border-radius: var(--border-radius); }
-.quem-sou__content p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+.quem-sou__image-wrapper img { width: 100%; border-radius: var(--border-radius); box-shadow: 10px 10px 0px var(--support-color); }
+.quem-sou__content p { margin-bottom: 1.5rem; font-size: 1.05rem; }
 .quem-sou__highlights { display: flex; gap: 2rem; margin-top: 2rem; border-top: 1px solid #ddd; padding-top: 2rem; }
 .highlight-item { text-align: center; }
-.highlight-item strong { font-family: var(--title-font); font-size: 2rem; color: var(--support-color); display: block; }
+.highlight-item strong { font-family: var(--title-font); font-size: 1.8rem; color: var(--primary-color); display: block; }
 
 /* ==================== 4. MENTORIA ==================== */
 .mentoria { background-color: var(--white-color); }
-.mentoria__steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 4rem; text-align: center; }
-.step-item h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.mentoria__steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem; text-align: center; }
+.step-item { padding: 2rem; }
+.step-item h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
 .step-item h3 span { color: var(--accent-color); margin-right: 0.5rem; }
-.mentoria__benefits { max-width: 600px; margin: 0 auto 3rem; background: var(--bg-color); padding: 2rem; border-radius: var(--border-radius); }
-.benefits__title { margin-bottom: 1.5rem; text-align: center; }
-.mentoria__benefits ul { list-style: none; columns: 2; }
+.mentoria__benefits { max-width: 600px; margin: 0 auto 3rem; background: var(--bg-color); padding: 2.5rem; border-radius: var(--border-radius); }
+.benefits__title { margin-bottom: 1.5rem; text-align: center; font-size: 1.3rem; }
+.mentoria__benefits ul { list-style: none; columns: 2; column-gap: 2rem; }
 .mentoria__benefits li { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; font-weight: 600; }
 .mentoria__benefits i { color: var(--support-color); }
 
@@ -94,10 +101,11 @@ h1, h2, h3 { font-family: var(--title-font); color: var(--primary-color); font-w
 .video-section .section__title, .video-section .section__subtitle, .video-caption { color: var(--white-color); }
 .video-wrapper { max-width: 900px; margin: 0 auto 1.5rem; border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
 .video-wrapper video { width: 100%; display: block; }
-.video-caption { font-weight: 600; }
+.video-caption { font-weight: 600; opacity: 0.8; }
 
 /* ==================== 6. RESULTADOS ==================== */
 .resultados__mosaic { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
+.mosaic-item img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--border-radius); }
 .cta-fixo .button { position: sticky; bottom: 2rem; z-index: 50; }
 
 /* ==================== 7. DIAGNÓSTICO ==================== */
@@ -112,20 +120,23 @@ h1, h2, h3 { font-family: var(--title-font); color: var(--primary-color); font-w
 .form-reinforcement { font-size: 0.9rem; text-align: center; opacity: 0.8; margin-top: 1rem; }
 
 /* ==================== 8. CONTATO ==================== */
-.contato__icons { display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; }
-.contato__icons a { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--primary-color); font-weight: 600; }
-.contato__icons i { font-size: 2.5rem; color: var(--support-color); }
+.contato__icons { display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap; }
+.contato__icons a { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--primary-color); font-weight: 600; text-decoration: none; transition: var(--transition); }
+.contato__icons a:hover { transform: translateY(-5px); color: var(--accent-color); }
+.contato__icons i { font-size: 2.5rem; color: var(--support-color); transition: var(--transition); }
+.contato__icons a:hover i { color: var(--accent-color); }
 .contato__form { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
 .contato__form input, .contato__form textarea { width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: var(--border-radius); font-family: var(--body-font); font-size: 1rem; }
 .contato__email { margin-top: 2rem; }
 
 /* ==================== 9. FOOTER ==================== */
 .footer { background-color: var(--primary-color); color: var(--bg-color); padding: 4rem 0 2rem; text-align: center; }
-.footer__logo { font-size: 1.5rem; font-family: var(--title-font); margin-bottom: 2rem; }
-.footer__logo span { display: block; font-size: 0.8rem; font-family: var(--body-font); opacity: 0.7; }
+.footer__logo { font-size: 1.4rem; font-family: var(--title-font); margin-bottom: 2rem; }
+.footer__logo span { display: block; font-size: 0.75rem; font-family: var(--body-font); opacity: 0.7; }
 .footer__links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
-.footer__links a { color: var(--bg-color); font-weight: 600; }
+.footer__links a { text-decoration: none; color: var(--bg-color); font-weight: 600; }
 .footer__social { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
+.footer__social a { text-decoration: none; color: var(--bg-color); }
 .footer__social i { font-size: 1.5rem; }
 .footer__copyright { opacity: 0.6; font-size: 0.9rem; }
 
@@ -147,4 +158,5 @@ h1, h2, h3 { font-family: var(--title-font); color: var(--primary-color); font-w
     .section { padding: 4rem 0; }
     .quem-sou .container, .mentoria__steps { grid-template-columns: 1fr; }
     .quem-sou__image-wrapper { order: -1; margin-bottom: 2rem; }
+    .mentoria__benefits ul { columns: 1; }
 }
