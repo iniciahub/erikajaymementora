@@ -40,7 +40,7 @@ h1, h2, h3 { font-family: var(--title-font); color: var(--primary-color); font-w
 .button {
     display: inline-block; background-color: var(--accent-color); color: var(--dark-color);
     padding: 0.9rem 2.2rem; border-radius: 50px; font-weight: 700; cursor: pointer;
-    transition: var(--transition); border: 2px solid var(--accent-color);
+    transition: var(--transition); border: 2px solid var(--accent-color); text-decoration: none;
 }
 .button:hover { transform: translateY(-3px); box-shadow: 0 8px 15px rgba(255, 199, 44, 0.4); }
 .button--large { padding: 1.1rem 2.8rem; font-size: 1.05rem; }
@@ -58,14 +58,17 @@ h1, h2, h3 { font-family: var(--title-font); color: var(--primary-color); font-w
 .nav__close, .nav__toggle { display: none; cursor: pointer; font-size: 1.5rem; }
 
 /* ==================== HERO ==================== */
-.hero { background-color: var(--light-gray-color); padding-top: var(--header-height); }
-.hero__container { grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; min-height: 85vh; }
-.hero__title { font-size: var(--h1-font-size); font-weight: 800; line-height: 1.25; margin-bottom: 1.5rem; }
-.hero__subtitle { margin-bottom: 2rem; font-size: 1.15rem; }
+.hero { background-color: var(--light-gray-color); padding-top: var(--header-height); position: relative; }
+.hero__video-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
+.hero__video { width: 100%; height: 100%; object-fit: cover; }
+.hero::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(30, 89, 81, 0.7); z-index: -1; }
+.hero__container { grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; min-height: 85vh; position: relative; z-index: 2; }
+.hero__title { font-size: var(--h1-font-size); font-weight: 800; line-height: 1.25; margin-bottom: 1.5rem; color: var(--white-color); }
+.hero__subtitle { margin-bottom: 2rem; font-size: 1.15rem; color: var(--white-color); opacity: 0.9; }
 .hero__cta-group { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
-.hero__social-proof { font-weight: 700; }
+.hero__social-proof { font-weight: 700; color: var(--white-color); }
 .hero__image-wrapper { text-align: center; }
-.hero__image-wrapper img { max-width: 380px; width: 100%; border-radius: 50%; }
+.hero__image-wrapper img { max-width: 380px; width: 100%; border-radius: 50%; border: 6px solid var(--white-color); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
 
 /* ==================== DEMAIS SEÇÕES ==================== */
 .desafio .section__title, .sobre .section__title { color: var(--dark-color); }
