@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // Adiciona classe ao body para ativar animações via CSS de forma segura
-    // Isso garante que o conteúdo seja visível mesmo se o JS falhar
     document.body.classList.add('js-enabled');
 
     // --- EFEITO DE SCROLL NO HEADER ---
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleMenu = () => {
         sideMenu.classList.toggle('is-active');
         overlay.classList.toggle('is-active');
-        // Trava o scroll da página quando o menu está aberto
         document.body.style.overflow = sideMenu.classList.contains('is-active') ? 'hidden' : '';
     };
 
@@ -34,12 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = link.getAttribute('href');
             const targetElement = document.querySelector(targetId);
             
-            // Fecha o menu antes de rolar para o destino
             if (sideMenu.classList.contains('is-active')) {
                 toggleMenu();
             }
 
-            // Atraso para garantir que o menu feche visualmente antes da rolagem
             setTimeout(() => {
                 if (targetElement) {
                     window.scrollTo({
@@ -81,10 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (smartPopup) {
         setTimeout(showPopup, 30000); // 30 segundos
         closePopup.addEventListener('click', hidePopup);
-        ctaPopup.addEventListener('click', (e) => {
-            e.preventDefault();
-            hidePopup();
-            document.querySelector('#diagnostico').scrollIntoView({ behavior: 'smooth' });
-        });
+        // O CTA do pop-up é um link <a>, então não precisa de JS extra para o clique
+        // Apenas para fechar o pop-up caso o link não abra em nova aba
+        ctaPopup.addEventListener('click', hidePopup);
     }
 });
