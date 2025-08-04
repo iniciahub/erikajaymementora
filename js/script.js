@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ==================== LÓGICA DO MODAL DE DIAGNÓSTICO ==================== */
     const openModalBtn1 = document.getElementById('open-diagnostico-modal');
-    const openModalBtn2 = document.getElementById('open-diagnostico-modal-2');
+    const openModalBtn2 = document.getElementById('open-diagnostico-modal-2'); // Botão no CTA final
     const closeModalBtn = document.getElementById('close-diagnostico-modal');
     const modalOverlay = document.getElementById('diagnostico-modal');
     const formDiagnostico = document.getElementById('form-diagnostico');
