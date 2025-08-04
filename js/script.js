@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Adiciona classe ao body para indicar que o JS está ativo
+    // Isso previne o "texto invisível" se o JS falhar
+    document.body.classList.add('js-enabled');
+
     /* ==================== MENU MOBILE ==================== */
     const navMenu = document.getElementById('nav-menu'),
           navToggle = document.getElementById('nav-toggle'),
@@ -20,7 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==================== ANIMAÇÃO DE SCROLL ==================== */
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            if (entry.isIntersecting) entry.target.classList.add('is-visible');
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
         });
     }, { threshold: 0.1 });
     document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
