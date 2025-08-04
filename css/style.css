@@ -26,22 +26,17 @@ h1, h2, h3 { font-family: var(--title-font); color: var(--primary-color); font-w
 .grid { display: grid; gap: 4rem; }
 .section { padding: 6rem 0; overflow-x: hidden; }
 .section__title { font-size: var(--h2-font-size); margin-bottom: 2rem; line-height: 1.2; }
+.section__subtitle { max-width: 700px; margin: 0 auto 3rem; font-size: 1.1rem; line-height: 1.8; }
 .text-center { text-align: center; }
 
 /* ==================== ANIMAÇÕES (À PROVA DE FALHAS) ==================== */
-/* Por padrão, tudo é visível. */
 .animate-on-scroll { opacity: 1; } 
-
-/* Se o JS estiver ativo, preparamos para a animação. */
 body.js-enabled .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-body.js-enabled .animate-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+body.js-enabled .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
 [data-delay="1"] { transition-delay: 0.2s; } 
 [data-delay="2"] { transition-delay: 0.4s; }
 
@@ -115,27 +110,18 @@ body.js-enabled .animate-on-scroll.is-visible {
 .video-caption { font-weight: 600; opacity: 0.8; }
 
 /* ==================== 6. RESULTADOS ==================== */
-.resultados__mosaic { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
-.mosaic-item img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--border-radius); }
-.cta-fixo .button { position: sticky; bottom: 2rem; z-index: 50; }
+.resultados { background-color: var(--bg-color); }
+.resultados__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+.resultado-card { background-color: var(--white-color); padding: 2rem; border-radius: var(--border-radius); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); text-align: left; }
+.resultado-card p { line-height: 1.6; margin-bottom: 1rem; color: var(--primary-color); }
+.resultado-nome { display: block; font-weight: 700; color: var(--accent-color); font-size: 0.9rem; text-align: right; }
+.cta-fixo .button { margin-top: 2rem; }
 
-/* ==================== 7. DIAGNÓSTICO E FORMULÁRIOS ==================== */
-.diagnostico, .contato { background-color: var(--white-color); }
-.diagnostico__form, .contato__form { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
-.diagnostico__form input, .diagnostico__form textarea,
-.contato__form input, .contato__form textarea {
-    width: 100%; padding: 1rem; border: 1px solid #ccc;
-    border-radius: var(--border-radius); font-family: var(--body-font); font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-.diagnostico__form input:focus, .diagnostico__form textarea:focus,
-.contato__form input:focus, .contato__form textarea:focus {
-    outline: none; border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25);
-}
-.form-group { text-align: left; }
-.radio-group { display: flex; gap: 1.5rem; margin-top: 0.5rem; flex-wrap: wrap; }
-.form-reinforcement { font-size: 0.9rem; text-align: center; opacity: 0.8; margin-top: 1rem; }
+/* ==================== 7. DIAGNÓSTICO ==================== */
+.diagnostico { background-color: var(--white-color); }
+.diagnostico .button--large { padding: 1.2rem 3.5rem; font-size: 1.1rem; }
+
+/* ==================== 8. CONTATO ==================== */
 .contato__icons { display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap; }
 .contato__icons a { text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--primary-color); font-weight: 600; transition: var(--transition); }
 .contato__icons a:hover { transform: translateY(-5px); color: var(--accent-color); }
