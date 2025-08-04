@@ -50,7 +50,7 @@
             <div class="hero__content container">
                 <h1 class="hero__title animate-on-scroll">Você não precisa ganhar mais, você precisa aprender a dominar o que já tem.</h1>
                 <p class="hero__subtitle animate-on-scroll" data-delay="1">Sou Erika Jayme, mentora de mulheres que querem destravar sua vida financeira e emocional de uma vez por todas.</p>
-                <a href="https://wa.me/5531998364682?text=Olá,%20Erika!%20Vi%20seu%20site%20e%20quero%20começar%20minha%20transformação." target="_blank" class="button animate-on-scroll" data-delay="2">Quero Começar Agora</a>
+                <button class="button animate-on-scroll" data-delay="2" id="open-diagnostico-modal">Quero Começar Agora</button>
             </div>
         </section>
 
@@ -110,7 +110,12 @@
                  <h2 class="section__title">Sua relação com o dinheiro precisa mudar agora.</h2>
                  <p class="section__subtitle">Assista ao vídeo e entenda o porquê.</p>
                  <div class="video-wrapper">
-                    <video controls poster="assets/images/video-thumbnail.jpg" src="assets/videos/video-principal.mp4"></video>
+                    <iframe 
+                        src="https://player.mux.com/mtr2JMJ02AwttDvxpvDx3ST8uc2HYmXW1LhAZcPQAiR4" 
+                        style="border: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
                  </div>
                  <p class="video-caption">Em menos de 3 minutos, você vai entender o que te impede de prosperar.</p>
             </div>
@@ -118,7 +123,7 @@
 
         <section class="section resultados" id="resultados">
             <div class="container">
-                <h2 class="section__title text-center animate-on-scroll">Elas são a prova de que funciona.</h2>
+                <h2 class="section__title text-center animate-on-scroll">Elas transformaram suas vidas financeiras com a minha mentoria.</h2>
                 <div class="resultados__grid">
                     <div class="resultado-card animate-on-scroll">
                         <p>"Antes da mentoria, eu ganhava bem, mas vivia no vermelho. A Erika me ensinou a organizar minhas finanças de forma simples e prática. Hoje, tenho controle total do meu dinheiro e finalmente consegui começar a investir para o futuro!"</p>
@@ -141,22 +146,21 @@
 
         <section class="section diagnostico" id="diagnostico">
             <div class="container text-center animate-on-scroll">
-                <h2 class="section__title">Dê o primeiro passo para a sua transformação.</h2>
-                <p class="section__subtitle">Clique no botão abaixo para conversarmos no WhatsApp. Vou te fazer algumas perguntas para entender seu momento e te oferecer uma análise gratuita e personalizada.</p>
-                <a href="https://wa.me/5531998364682?text=Olá,%20Erika!%20Gostaria%20de%20receber%20meu%20diagnóstico%20gratuito." target="_blank" class="button button--large">Receber meu diagnóstico via WhatsApp</a>
+                <h2 class="section__title">Dê o primeiro passo: Peça seu Diagnóstico Gratuito.</h2>
+                <p class="section__subtitle">Clique no botão abaixo para abrir o formulário e receber uma análise exclusiva, feita por mim, sobre seus maiores desafios financeiros.</p>
+                <button class="button button--large" id="open-diagnostico-modal-2">Preencher Diagnóstico Agora</button>
             </div>
         </section>
 
         <section class="section contato" id="contato">
              <div class="container text-center">
                 <h2 class="section__title animate-on-scroll">Vamos conversar?</h2>
-                <p class="section__subtitle animate-on-scroll">Se você tem qualquer dúvida ou quer saber mais, estou a uma mensagem de distância. Será um prazer te ouvir.</p>
                 <div class="contato__icons animate-on-scroll">
-                    <a href="https://wa.me/5531998364682?text=Olá,%20Erika!%20Vi%20seu%20site%20e%20gostaria%20de%20conversar." target="_blank"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+                    <a href="https://wa.me/5531998364682" target="_blank"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
                     <a href="https://instagram.com/erikajayme.mentora" target="_blank"><i class="fab fa-instagram"></i><span>Instagram</span></a>
                     <a href="#" target="_blank"><i class="fab fa-youtube"></i><span>YouTube</span></a>
                 </div>
-                 <p class="contato__email">Ou se preferir, envie um e-mail para: <strong>erikajaymementora@gmail.com</strong></p>
+                 <p class="contato__email animate-on-scroll">Ou se preferir, envie um e-mail para: <strong>erikajaymementora@gmail.com</strong></p>
             </div>
         </section>
     </main>
@@ -188,8 +192,26 @@
         <div class="popup__close" id="popup-close">&times;</div>
         <div class="popup__content">
             <h3>Erika aqui!</h3>
-            <p>Percebi que você ainda não pediu seu diagnóstico. Posso te ajudar — é gratuito, rápido e direto comigo.</p>
-            <a href="https://wa.me/5531998364682?text=Olá,%20Erika!%20Vi%20o%20aviso%20no%20site%20e%20gostaria%20do%20meu%20diagnóstico%20gratuito." target="_blank" class="button" id="popup-cta">Receber diagnóstico</a>
+            <p>Percebi que você ainda não pediu seu diagnóstico. Posso te ajudar — é gratuito e rápido.</p>
+            <button class="button" id="popup-cta">Quero receber</button>
+        </div>
+    </div>
+    
+    <div class="modal-overlay" id="diagnostico-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="close-diagnostico-modal">&times;</button>
+            <h2>Diagnóstico Financeiro</h2>
+            <p>Responda com atenção. Suas respostas são o primeiro passo para entendermos como posso te ajudar a virar essa chave.</p>
+            
+            <form class="modal-form" id="form-diagnostico">
+                <div class="form-field"><label for="diag-nome">Seu nome:</label><input type="text" id="diag-nome" placeholder="Como você se chama?" required></div>
+                <div class="form-field"><label for="diag-email">Seu melhor e-mail:</label><input type="email" id="diag-email" placeholder="Para onde envio sua análise?" required></div>
+                <div class="form-field"><label for="diag-renda">Sua principal fonte de renda hoje é:</label><select id="diag-renda" required><option value="" disabled selected>Selecione uma opção</option><option value="CLT">CLT (Trabalho com carteira assinada)</option><option value="Autônoma/Liberal">Autônoma / Profissional Liberal</option><option value="Empresária">Empresária</option><option value="Outra">Outra</option></select></div>
+                <div class="form-field"><label>Como você descreve sua situação atual?</label><div class="radio-group"><label><input type="radio" name="situacao" value="Endividada" required> Endividada</label><label><input type="radio" name="situacao" value="Desorganizada"> Desorganizada</label><label><input type="radio" name="situacao" value="Estagnada"> Controlada, mas estagnada</label></div></div>
+                <div class="form-field"><label for="diag-dificuldade">Qual sua maior dificuldade ou frustração com dinheiro hoje?</label><textarea id="diag-dificuldade" rows="4" placeholder="Ex: Não sei para onde meu dinheiro vai, tenho medo de investir..."></textarea></div>
+                <div class="form-field"><label for="diag-objetivo">O que você mais deseja alcançar financeiramente em 1 ano?</label><textarea id="diag-objetivo" rows="4" placeholder="Ex: Ter minha reserva de emergência, fazer minha primeira viagem..."></textarea></div>
+                <button type="submit" class="button button--large" id="enviar-diagnostico">Enviar para Análise no WhatsApp</button>
+            </form>
         </div>
     </div>
 
